@@ -47,3 +47,22 @@ roteamento / rotas {
     > importe route.js dentro de src/index.js ( veja o arquivo )
 }
 
+statusBar {
+    > barrinha de 'cima' que mostra bateria,horario e etc...
+    > para personalizar a status bar, pode-se importar StatusBar fo react-native
+    > import { StatusBar } from 'react-native', ( veja o arquivo src/index.js )
+}
+
+styled components {
+    > $ yarn add styled-components
+    > usabildiade parecida com a do react(normal)
+    > cria-se um styles.js dentro da pasta Main
+    > diferente do react da web, NAO É POSSIVEL CRIAR STYLED-COMPONENTS ALINHADOS
+    > nao existem estilos globais, porem pode-se criar componentes compartilhados por varias paginas
+}
+
+icones {
+    > $ yarn add react-native-vector-icons
+    > import Icon from 'react-native-vector-icons/MaterialIcons';
+    > para saber os icones, entre na documentação
+}
