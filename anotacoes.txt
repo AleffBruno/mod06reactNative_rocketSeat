@@ -1,0 +1,49 @@
+comandos principais {
+    > $ adb devices ( mostra os devices diponiveis )
+    > $ react-native run-android ( roda o projeto em um android quando conectado via USB)
+    > $ adb shell input keyevent 82 ( abre o menu de debug no celular )
+}
+
+organização de pastas {
+    > cria-se uma pasta src, dentro cria-se index.js. Coloque o codigo do App.js dentro do index.js e depois delete App.js
+    > va em index.js (na raiz do projeto), e mude a referencia do import de './App' para './src'
+}
+
+debug {
+    > abra o menu de debug, em seguida escolha 'Debug' ou 'Debug JG remotely'
+
+    debug externo {
+        > sera usado a ferramenta Reactotron
+        > https://github.com/infinitered/reactotron
+        > Escolha: Quick start for React Native ( https://github.com/infinitered/reactotron/blob/master/docs/quick-start-react-native.md )
+        > faça o download do aplicativo para desktop (https://github.com/infinitered/reactotron/blob/master/docs/installing.md)
+        > se for windows, baixe .msi ou .exe
+        > apos isso, $ yarn add reactotron-react-native
+        > dentro de src, cria-se config/ReactotronConfig.js ( veja o arquivo )
+        > a variavel __DEV__ somente executa em ambiente de desenvolvimento
+        > importe ReactotronConfig.js dentro de src/index.js ( atente-se, que todos os imports ACIMA do import do ReactotronConfig.js NAO terão 'console.tron.log')
+        > se nao aparecer nada no reactotron, use no terminal $ adb reverse tcp:9090 tcp:9090
+    }
+}
+
+roteamento / rotas {
+    > cria-se dentro de src a pasta pages
+    > dentro da pasta pages, cria-se as pastas com as pages ( veja as pasta )
+    > dentro de src, cria-se o arquivo routes.js
+    > $ yarn add react-navigation
+    > apos isso entre no site do react-navigation para instalar o resto das rependencias ( muito parecido com essas : $ yarn add react-native-reanimated react-native-gesture-handler react-native-screens@^1.0.0-alpha.23)
+    IMPORTANTE PARA ANDROID {
+        To finalize installation of react-native-screens for Android, add the following two lines to dependencies section in android/app/build.gradle:
+            implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+            implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+        
+        To finalize installation of react-native-gesture-handler for Android, make the following modifications to MainActivity.java:
+    }
+    > apos isso, react-native run-android
+    > depois, escreva o arquivo routes.js ( veja o arquivo )
+    > tipos de navegação: abas, stack(botoes), drawwer(menu na esquerda), cada navegação tem a sua lib dentro do react-navigation
+    > NO EXEMPLO DO CURSO FOI UTILIZADO 'react-navigation-stack' , $ yarn add react-navigation-stack
+    > todo tipo de navegação fica dentro de "createAppContainer" ( veja o arquivo routes.js )
+    > importe route.js dentro de src/index.js ( veja o arquivo )
+}
+
