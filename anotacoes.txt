@@ -65,4 +65,22 @@ icones {
     > $ yarn add react-native-vector-icons
     > import Icon from 'react-native-vector-icons/MaterialIcons';
     > para saber os icones, entre na documentação
+    SE OS ICONES NAO APARECEREM {
+        ref: https://github.com/oblador/react-native-vector-icons/issues/661
+        > va em android/app/build.gradle
+        > adicione na ultima linha em branco : apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+        > rode $ react-native run-android
+    }
+}
+
+loading {
+    > importa-se { ActivityIndicator } from 'react-native'
+    > cria um state de loading = false
+    > antes de começa a chamada, setState(loading: true), ao terminar a chamada, setState(loading: false)
+    > use um 'if', se loading = true, mostre o componente ActivityIndicator, se nao mostre o componente verdadeiro ( exemplo em Main/index.js )
+}
+
+async storage (segundo o curso) {
+    > $ yarn add @react-native-community/async-storage
+    > rode $ react-native run-android
 }
