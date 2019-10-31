@@ -85,4 +85,34 @@ loading {
 async storage (segundo o curso) {
     > $ yarn add @react-native-community/async-storage
     > rode $ react-native run-android
+    > caso começe a quebrar o 'build', remove a node_modules e use 'npm i' ou 'yarn', apos isso, react-native run-android
+}
+
+navegação {
+    > é feito usando o react-navigation
+    > pode-se ver em console.log(this.props) o chave navigation
+    > troca de pagina: this.props.navigation.navigate('{NOME_DA_PAGINA_CADASTRADA_EM_ROUTES.JS}',{OBJETO|PARAMETROS})
+    > recebe os dados na outra pagina : this.props.navigation.getParam('NOME_DO_PARAMETRO_PASSADO')
+    > ATENÇÃO COM METODOS STATIC {
+        caso seja necessario acessar o 'getParam' dentro de uma propriedade estatica
+        ex: static navigationOptions = {title: navigation.getParam('chave')} , ISSO FALHA
+        É necesario transformar em uma funcao
+        ex: static navigationOptions = ({ nagivation }) => ({ title: nagivation.getParam('chave') }), ISSO FUNCIONA
+    }
+}
+
+FUNCOES EM BOTOES {
+    caso uma funcao seja chamada diretamente
+    ex: <button onPress={this.myFunc(valur)}/> , ELA VAI SER EXECUTADA AUTOMATICAMENTE,
+    o correto seria 
+    ex: <button onPress={() => this.myFunc(valur)}/>
+
+    quando uma funcao NAO TEM PARENTESES ela é passada como referencia
+    ex: <button onPress={this.myFunc}/> << isso funciona
+    quando uma funcao TEM PARENTESES, é necessario criar uma arrow function
+    ex: <button onPress={() => this.myFunc(valur)}/>
+}
+
+propTypes {
+    parecida com a do react para web
 }
