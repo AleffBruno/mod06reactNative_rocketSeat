@@ -1,5 +1,7 @@
 comandos principais {
+    > $ react-native run-android --help
     > $ adb devices ( mostra os devices diponiveis )
+    > $ react-native run-android --deviceId=0051384697 ( [TALVEZ_BUG] roda o projeto em um device especifico  )
     > $ react-native run-android ( roda o projeto em um android quando conectado via USB)
     > $ adb shell input keyevent 82 ( abre o menu de debug no celular )
 }
