@@ -116,3 +116,19 @@ FUNCOES EM BOTOES {
 propTypes {
     parecida com a do react para web
 }
+
+dica sobre scroll infinito {
+    > adiciona-se as props {
+        onEndReachedThreshold={0.2} // Carrega mais itens quando chegar em 20% do fim
+        onEndReached={this.loadMore} // Função que carrega mais itens
+    } , no elemento FlatList
+    > cria um estado com o numero da pagina ( por padrão é 1)
+    > (opicional) cria um objeto no state contendo informções sobre a paginação
+    > cria uma funcao que faz chamada para API e aceita a pagina como parametro(por padrao é 1)
+    > ATENÇÃO PARA UNIR 2 ARRAYS NAS PROPS {
+        errado > [...value, value2]
+        correto > [...value, ...value2]
+    }
+    > cria uma funcao "carregarMais" que é chamada quando o scroll chega no fim da pagina
+    > esta funcao coloca page++ e chama a funcao que faz a request na API passando a page++ como parametro
+}
