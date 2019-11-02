@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, TouchableOpacity, Text } from 'react-native';
 import api from '../../services/api';
 
 import { 
@@ -59,7 +59,12 @@ export default class User extends Component {
 
         this.loadProducts(pageNumber)
 
-        // console.log("CARREGA MAIS");
+    }
+
+    goToMyWebView = (staredRepo) => {
+        const { navigation } = this.props;
+
+        navigation.navigate('MyWebView',{staredRepo});
     }
 
     render() {
@@ -75,6 +80,8 @@ export default class User extends Component {
                     <Bio> {user.bio} </Bio>
                 </Header>
                 
+                
+
                 { loading ? (
                     <ActivityIndicator color="#red"/>
                 ) : (
@@ -89,6 +96,11 @@ export default class User extends Component {
                                 <Info>
                                     <Title>{item.name}</Title>
                                     <Author>{item.owner.login}</Author>
+                                    <TouchableOpacity
+                                        onPress={() => this.goToMyWebView(item)}
+                                    >
+                                        <Text> || Acessar GitHub || </Text>
+                                    </TouchableOpacity>
                                 </Info>
                             </Starred>
                         )}

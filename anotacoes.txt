@@ -89,6 +89,7 @@ async storage (segundo o curso) {
 }
 
 navegação {
+    > VEJA A 'CHAVE' ROTAS NESSE ARQUIVO
     > é feito usando o react-navigation
     > pode-se ver em console.log(this.props) o chave navigation
     > troca de pagina: this.props.navigation.navigate('{NOME_DA_PAGINA_CADASTRADA_EM_ROUTES.JS}',{OBJETO|PARAMETROS})
